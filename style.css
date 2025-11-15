@@ -1,0 +1,247 @@
+/* --- CSS 核心基础与排版 (Mobile-First 默认样式) --- */
+body {
+  font-family: "微软雅黑", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  /* 确保平滑滚动 */
+  scroll-behavior: smooth; 
+}
+
+/* HTML 标签默认 Margin 清零 (修正垂直间距问题) */
+h1, h2, h3, p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 全局盒子模型修正 (专业标准) */
+* {
+  box-sizing: border-box;
+}
+
+/* --- 基础选择器样式 --- */
+
+/* Mobile 默认字体大小 */
+#main-title {
+  text-align: center;
+  font-size: 1.8rem; /* 手机默认尺寸 */
+  /* FIX: 强制颜色为白色，以解决对比度问题 */
+  color: white;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  /* FIX: 强制颜色为白色，以解决对比度问题 */
+  color: white;
+  margin-bottom: 25px;
+}
+
+/* 链接样式 */
+a {
+  text-decoration: none;
+  color: #007BFF;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- 容器与布局 --- */
+
+main {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding-top: 0; 
+}
+
+header {
+  /* 背景和图片 (简写) */
+background: url('https://source.unsplash.com/random/1600x900?gaming') no-repeat center center/cover, #222;";
+  
+  /* 布局与外观 */
+  color: white;
+  padding: 30px 30px; /* 修正后的垂直高度 */
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* --- 导航栏 Flexbox --- */
+header nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+header nav a {
+  color: yellow;
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+/* --- 卡片基础样式与 Hover --- */
+section,
+article {
+  background-color: #ffffff;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  /* FIX: 修正 solod -> solid */
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+section:hover,
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* --- 卡片网格 Flexbox --- */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap; /* 允许换行 (Mobile-First 堆叠的关键) */
+  gap: 20px;
+}
+.card-grid article {
+  /* 确保在小屏幕上堆叠 */
+  min-width: 100%; 
+  flex: auto;
+}
+
+/* --- 表格和表单样式 --- */
+table { width: 100%; border-collapse: collapse; }
+thead { background-color: #f9f9f9; }
+th,td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+input, textarea, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+/* FIX: 修正 backgroun-color 拼写错误 */
+button {
+  background-color: #333366;
+  color: white;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+/* --- 页脚与错误提示 --- */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 40px 0;
+  border-top: 1px solid #eee;
+  color: #888;
+}
+
+.form-fail-btn {
+  background-color: #dc3545; /* 警告红色 */
+  border-color: #dc3545;
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+}
+
+/* =======================================================
+   III. DARK MODE STYLES (JS 切换)
+   ======================================================= */
+
+body.dark-theme {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-theme a {
+  color: #4dc2f9;
+}
+
+body.dark-theme section,
+body.dark-theme article {
+  background-color: #1a1a1a;
+  border-color: #333;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme thead { background-color: #222; }
+body.dark-theme th,
+body.dark-theme td { border-bottom: 1px solid #333; }
+body.dark-theme footer { border-top-color: #333; }
+body.dark-theme h2, body.dark-theme h3, body.dark-theme p { color: #ededed; }
+
+
+/* =======================================================
+   IV. MEDIA QUERIES (响应式) - Mobile-First 策略
+   ======================================================= */
+
+/* 只有当屏幕宽度大于等于 768px 时，才应用这里的样式 */
+@media (min-width: 768px) {
+    
+    /* 1. 布局优化：恢复卡片网格的并排显示 */
+    .card-grid article {
+        /* 取消手机上的 100% 宽度限制，让 flex: 1 接管 */
+        min-width: auto; 
+        flex: 1; /* 恢复平分空间 */
+    }
+    
+    /* 2. 字体优化：放大桌面端主标题 */
+    #main-title {
+        font-size: 3.2rem; 
+        line-height: 1.2; 
+    }
+
+    /* 3. 放大桌面端次级标题 */
+    section h2 {
+        font-size: 1.8rem; 
+    }
+    
+    /* 4. 修复图片全宽 */
+    #about img {
+        width: 100%;
+    }
+    
+    /* 5. 恢复页头内边距 */
+    header {
+        padding: 30px 30px; 
+    }
+}
+
+/* --- 最终修正：按钮间距 --- */
+header button {
+    margin-top: 20px; /* 增加 20px 的上边距，推开导航栏 */
+    font-size: 1.1rem; /* 稍微放大字体，让按钮更醒目 */
+}
+
+header button#theme-toggle {
+    /* 1. 布局：绝对定位到右上角 */
+    position: absolute; 
+    top: 20px;          /* 距离 header 顶部 20px */
+    right: 20px;        /* 距离 header 右侧 20px */
+    width: auto;        /* 关键：取消 100% 宽度，让它只占据内容空间 */
+    margin: 0;          /* 取消居中和外边距 */
+
+    /* 2. 样式：取消深色背景，变为透明白框 */
+    background-color: transparent; 
+    border: 1px solid transparent;       
+    color: white;                  
+    font-size: 1rem;
+    padding: 8px 15px; /* 增加内边距，让按钮更美观 */
+    z-index: 1000;     /* 确保它在最顶层 */
+}

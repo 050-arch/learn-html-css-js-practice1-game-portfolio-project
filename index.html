@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>1113-电子游戏网页-练习Javascript</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的爱好：电子游戏</title>
+</head>
+<body>
+  <header>
+    <!--这是注释-->
+    <h1 id="main-title">电子游戏的世界</h1>
+    <p class="subtitle">探索数字叙事与互动艺术</p>
+    <nav>
+       <ul>
+         <li><a href="#about">关于游戏</a></li>
+         <li><a href="#types">推荐类型</a></li>
+       </ul>
+    </nav>
+    
+    <button id="theme-toggle">🌙 切换模式</button>
+    
+  </header>
+  
+  <main>
+    <section class="practice-box">
+      
+      <div>
+       <p>这是一个“常用值”练习盒</p>
+      </div>
+    </section>
+    
+    <section id="about">
+      <h2>什么是电子游戏？</h2>
+      <p>电子游戏并不仅仅是娱乐，它是一种复杂的媒介，结合了艺术、技术和互动设计。</p>
+      <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGNvbXB1dGVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="一个展示电子游戏画面的电脑" width="600">
+      <h3>我的入坑之作</h3>
+        <p>我最开始玩的是《魔兽世界》，它教会了我团队合作的重要性。</p>
+    </section>
+    
+    <section id="types">
+      <h2>我推荐的几种类型</h2>
+      
+      <div class="card-grid">
+        
+      <article>
+        <h3>角色扮演 (RPG)</h3>
+        <p>RPG 游戏提供了最深的沉浸感和故事性。</p>
+        <p><strong>推荐理由：</strong>史诗级的剧情</p>
+      </article>
+      
+      <article>
+        <h3>开放世界 (Open World)</h3>
+        <p>自由探索是这类游戏的最大乐趣。</p>
+        <p><strong>推荐理由：</strong><a href="https://zh.wikipedia.org/wiki/開放世界" target="_blank">极高的自由度</a></p>
+      </article>
+      </div>
+      
+    </section>
+        
+    <section>
+      <h2>我的游戏技能评估</h2>
+      <div id="status-dashboard">
+      <p>当前状态: 正在加载...</p>
+      </div>
+      <table id="skill-table">
+        <thead>
+        <tr>
+          <th>游戏类型</th>
+          <th>熟练程度</th>
+          <th>游戏时长</th>
+        </tr>
+        </thead>
+          
+        <tbody>
+        <tr>
+          <td>RPG</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>500+ 小时</td>
+        </tr>
+        
+        <tr>
+          <td>SLG</td>
+          <td>⭐⭐⭐</td>
+          <td>100+ 小时</td>
+        </tr>
+        </tbody>
+          
+      </table>
+      </section>
+      
+      <section>
+        <h2>一起玩游戏</h2>
+        <p>我的邮箱：<a href="maodouer@youxi.com">maodouer@youxi.com</a>
+        
+      <form onsubmit="return validateForm()" novalidate>
+        <p id="form-error" style="color: red; font-weight: bold;"></p>
+         <label for="name">你的昵称：</label>
+         <input type="text" id="name" 
+                   placeholder="输入你的游戏昵称" required>
+         <label for="genre">最喜欢的游戏类型：</label>
+<input type="text" id="genre" name="genre" placeholder="例如: RPG 或 SLG">         
+            
+         <label for="message">留言：</label>
+         <textarea id="message" rows="4" placeholder="聊聊你喜欢的游戏"></textarea>
+       
+         <button type="submit">发送邀请</button>
+        <form onsubmit="return validateForm()">
+       </form>  
+ 
+      </section>
+        
+</main>           
+     <footer>
+       <p><small>&copy; 2025 by HTML练习者</small></p>
+     </footer>
+                                                                 </body>
+                                                                 </html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
